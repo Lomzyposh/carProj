@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal fade" id="proceedCheckout" aria-hidden="true" aria-labelledby="proceedCheckoutLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="proceedCheckoutLabel">Modal 1</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Show a second modal and hide this one with the button below.
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#proceedCheckout2" data-bs-toggle="modal">Open second modal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="proceedCheckout2" aria-hidden="true" aria-labelledby="proceedCheckoutLabel2" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="proceedCheckoutLabel2">Modal 2</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              Hide this modal and show the first with the button below.
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" data-bs-target="#proceedCheckout" data-bs-toggle="modal">Back to first</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" data-bs-target="#proceedCheckout" data-bs-toggle="modal">Open first modal</button>
+</body>
+</html>

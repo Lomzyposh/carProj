@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PoshAuto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Agu+Display&family=Bebas+Neue&family=Bokor&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Vinyl&family=Sorts+Mill+Goudy:ital@0;1&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" href="./assets/images/posh.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
+  <!-- <link rel="stylesheet" href="/assets/css/allCars.css" /> -->
+  <link rel="stylesheet" href="/assets/css/home.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Agu+Display&family=Bebas+Neue&family=Bokor&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Honk&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik+Vinyl&family=Sorts+Mill+Goudy:ital@0;1&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap");
+  </style>
+</head>
+
+<body>
+  <div id="progress-bar"></div>
+  <!-- <img src="./assets/images/james.jpg" alt="" class="fPartImg"> -->
+
+  <header class="header">
+    <nav class="navbar navbar-expand-lg bg-transparent">
+      <div class="container-fluid">
+        <a class="navbar-brand custom-brand" href="/home.html">
+          <img src="/assets/images/posh.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top" />
+          <span>POSHAUTO</span>
+        </a>
+
+        <button class="navbar-toggler bg-success hamBut" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="hamburger"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav me-auto navLi">
+            <li class="nav-item">
+              <a class="nav-link active text-success" aria-current="page" href="/home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/allCars.html">Cars</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/sell.html">Sell with Us</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-primary position-relative cartBut" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                Cart <i class="fa-solid fa-cart-shopping"></i>
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cartCount">
+                  0
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </button>
+
+            </li>
+          </ul>
+          <form class="d-none d-lg-flex" role="search" id="searchForm">
+            <input class="form-control me-2" type="search" placeholder="Search Cars" aria-label="Search"
+              id="searchField" />
+            <button class="btn btn-outline-success searchGo" type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <button id="authButton" class="btn btn-success">
+
+          </button>
+        </div>
+      </div>
+    </nav>
+
+  </header>
+
+
+  <div class="fPart">
+    <img src="/assets/images/fImage.jpg" alt="Luxury Cars" width="100%" id="fPartImg" />
+    <div id="overImg">
+      <div>
+        <h2>Drive in Style</h2>
+        <p>
+          Explore 1,000+ luxury cars, supercars and exotic cars for sale
+          worldwide in one simple search <br>
+          <b>Your dream car awaits at PoshAuto.</b>
+        </p>
+      </div>
+
+      <a href="/testDrive.html"><button>Book a Test Drive</button></a>
+
+
+    </div>
+  </div>
+
+  <div class="makesCont fade-in">
+    <div class="d-flex justify-content-between makeHead">
+      <h3>Popular Makes</h3>
+      <a class="icon-link icon-link-hover" style="--bs-link-hover-color-rgb: 25, 135, 84" href="/allCars.html">
+        View all
+        <i class="fa-solid fa-arrow-right fa-2xs" style="color: #74c0fc"></i>
+      </a>
+    </div>
+    <div class="makes">
+      <div class="makes-container">
+        <div class="make-item ferrari">
+          <img src="/assets/images/Makes/ferrari logo.jpg" alt="Ferrari" data-brand="Ferrari"
+            onclick="sendMake(this)" />
+        </div>
+        <div class="make-item aston">
+          <img src="/assets/images/Makes/Aston.jpg" alt="Aston" data-brand="Aston" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item bentley">
+          <img src="/assets/images/Makes/bentley.jpg" alt="Bentley" data-brand="Bentley" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item benz">
+          <img src="/assets/images/Makes/benz.jpg" alt="Mercedes" data-brand="Mercedes" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item bmw">
+          <img src="/assets/images/Makes/bmw.jpg" alt="Bmw" data-brand="Bmw" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item ford">
+          <img src="/assets/images/Makes/ford.jpg" alt="Ford" data-brand="Ford" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item lamborghini">
+          <img src="/assets/images/Makes/lambo.jpg" alt="Lamborghini" data-brand="Lamborghini"
+            onclick="sendMake(this)" />
+        </div>
+        <div class="make-item porsche">
+          <img src="/assets/images/Makes/Porsche.jpg" alt="Porsche" data-brand="Porsche" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item royce">
+          <img src="/assets/images/Makes/rolls.jpg" alt="Rolls-Royce" data-brand="Rolls" onclick="sendMake(this)" />
+        </div>
+        <div class="make-item toyota">
+          <img src="/assets/images/Makes/toyota logo.webp" alt="Toyota" data-brand="Toyota" onclick="sendMake(this)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pSearch">
+    <h2>Popular Searches</h2>
+    <div class="pFlex">
+      <div class="box one bg-dark">
+        <div data-brand="Bentley continental gtc" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/11/08/13/51/52/0feb17b7-11cc-4c8a-b7f2-3b16bf902067/je/1100xxs.jpg"
+            alt="Bentley" />
+          <p>
+            Bentley Continental GTC
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+        <div data-brand="Ferrari 599 GTB Fiorano" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/11/08/13/51/48/149c26a6-c2f3-4b97-a040-9de9b11e0f2e/je/1100xxs.jpg"
+            alt="Ferrari" />
+          <p>
+            Ferrari 599 GTB Fiorano
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+      </div>
+
+      <div class="box two">
+        <div data-brand="Jeep Wrangler" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/11/12/16/17/41/a87ea787-9f7f-458e-97e3-e20ee26f67d3/je/1100xxs.jpg"
+            alt="Jeep Wrangler" />
+          <p>
+            Jeep Wrangler
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+        <div data-brand="Lamborghini Urus" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/10/22/13/13/06/4583d03a-7a88-4415-a7d6-12050beba6c0/je/2200xxs.jpg"
+            alt="Lamborghini Urus" />
+          <p>
+            Lamborghini Urus
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+      </div>
+
+      <div class="box one">
+        <div data-brand="Nissan GT-R Premium Coupe" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/10/31/13/31/13/45d5ddc2-c43a-4fb0-9ba5-e469f73dfc48/je/1100xxs.jpg"
+            alt="Nissan GT-R Premium Coupe" />
+          <p>
+            Nissan GT-R Premium Coupe
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+        <div data-brand="Rolls-Royce Dawn" onclick="sendMake(this)">
+          <img
+            src="https://img.jamesedition.com/listing_images/2024/11/08/13/51/48/34363035-f57f-4eef-a997-5746650754dc/je/2200xxs.jpg"
+            alt="Rolls-Royce Dawn" />
+          <p>
+            Rolls-Royce Dawn
+            <i class="fa-solid fa-arrow-right" style="color: #74c0fc"></i>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="featured">
+    <h2 class="ftH2">Featured</h2>
+    <div id="carList" class="car-list"></div>
+  </div>
+
+  <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 modalTitle" id="staticBackdropLabel"></h1>
+          <button type="button" class="btn-close text-danger" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="carModal">
+
+
+            <div class="imageCont">
+              <div class="fImg">
+                <img src="" alt="imageDisplay" class="firstImg" id="modalImage" />
+              </div>
+              <div class="otherList">
+                <img src="" alt="" id="image1" class="thumbnail" />
+                <img src="" alt="" id="image2" class="thumbnail" />
+                <img src="" alt="" id="image3" class="thumbnail" />
+              </div>
+
+              <div class="buttons">
+                <a href="/testDrive.html"><button>Book a Test Drive <i class="fa-solid fa-car"
+                      style="color: #ffea00ab;"></i></button></a>
+                <button id="addToCartButton">Add to Cart <i class="fa-solid fa-cart-plus"
+                    style="color: #ffa600c0;"></i></button>
+              </div>
+              <hr style="color: white">
+              <div class="askQuestion">
+                <h5>Ask a Question</h5>
+                <div class="mb-3">
+                  <label for="floatingInput">Email address</label>
+                  <input type="email" class="form-control" id="askEmail" placeholder="name@example.com"
+                    style="background-color: #333; color: white;">
+                  <div class="alert alert-danger" role="alert" id="askEmailError">
+                    <i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i> Enter valid email
+                  </div>
+                  <textarea class="form-control" id="askMessage" rows="3"></textarea>
+                  <span class="messageError"></span>
+                  <button type="submit" id="askForm">Send</button>
+
+                </div>
+              </div>
+            </div>
+            <div class="carDetails">
+              <nav
+                style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+                aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item lk"><a href="#" class="link-info">Home</a></li>
+                  <li class="breadcrumb-item lk"><a href="#" class="link-info">Cars</a></li>
+
+                  <li class="breadcrumb-item active modalTitle top
+            " aria-current="page"></li>
+                </ol>
+              </nav>
+              <h4 class="modalTitle">CAR NAME</h2>
+                <p id="modalLocation"></p>
+                <ul>
+                  <li id="year">
+                    Year
+                  </li>
+                  <li class="modalTitle">Brand</li>
+                  <!-- <li>model</li> -->
+                </ul>
+                <h5 id="modalPrice">Price</h3>
+
+                  <div class="description">
+                    <h4>Description</h4>
+                    <p>Year<span id="modalYear"></span></p>
+                    <p>Make <span id="modalBrand"></span></p>
+                    <p>Model <span id="modalModel"></span></p>
+                    <p>Body Style <span id="modalBodyStyle"></span></p>
+                    <p>Engine <span id="modalEngine"></span></p>
+                    <p>Fuel Type <span id="modalfuelType"></span></p>
+                    <p>Exterior color <span id="modalexColor"></span></p>
+                    <p>Interior Color <span id="modalintColor"></span></p>
+                  </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="journal">
+    <h2>The Journal</h2>
+    <div class="flexed">
+      <div class="big rounded">
+        <a href="https://www.jamesedition.com/stories/cars/angelina-jolie-linked-ferrari-250-gt-pulled-from-christies-auction-explore-three-exclusive-alternatives/"
+          style="color: white;">
+          <img src="https://static.jamesedition.com/bir?img=/2024/11/Angelina-Jolis-Ferrari-hero.webp&size=home_main"
+            alt="Ferrari" class="rounded">
+          <div class="text">
+            <p>20 Dec 2024</p>
+            <h5>Angelina Jolie-Linked Ferrari 250 GT Pulled from Christie’s Auction; Explore Three Exclusive
+              Alternatives</h5>
+            <p>In an unexpected turn, Christie’s withdrew the highly anticipated Ferrari 250 GT from its “Except...</p>
+          </div>
+        </a>
+      </div>
+      <div class="articles">
+        <a
+          href="https://www.jamesedition.com/stories/cars/introducing-dourado-supercars-exotic-cars-and-tailor-made-customizations-in-dubai/">
+          <article class="article">
+
+            <img src="/assets/images/Dourado-hero2.webp" alt="Dourado" class="rounded">
+            <div class="text">
+              <p class="date">23 May 2024</p>
+              <h6>Introducing Dourado: Supercars, Exotic Cars, and Tailor-Made Customizations in Dubai</h6>
+              <p>Dubai is a regional business and entertainment hub, but it is also known as...</p>
+            </div>
+
+          </article>
+        </a>
+        <hr>
+        <a
+          href="https://www.jamesedition.com/stories/cars/magnum-opus-bespoke-luxury-van-built-on-the-mercedes-benz-sprinter-base/">
+          <article class="article">
+
+            <img src="https://static.jamesedition.com/bir?img=/2023/12/Fari-Cars-hero.webp&size=home_small"
+              alt="Sprinter" class="rounded">
+            <div class="text">
+              <p class="date">23 May 2024</p>
+              <h6>Magnum Opus: Bespoke Luxury Van Built on the Mercedes-Benz Sprinter...</h6>
+              <p>This luxury Mercedes Sprinter is the newest addition to Fari Cars’ lineup of bespoke...</p>
+            </div>
+
+
+          </article>
+        </a>
+        <hr>
+        <a
+          href="https://www.jamesedition.com/stories/cars/chiron-golden-era-bugattis-rolling-works-of-art-sets-a-new-standard-for-customization/">
+          <article class="article">
+
+            <img src="https://static.jamesedition.com/bir?img=/2023/10/Bugatti-hero.webp&size=home_small" alt="Bugatti"
+              class="rounded">
+            <div class="text">
+              <p class="date">23 May 2024</p>
+              <h6>Chiron "Golden Era": Bugatti's Rolling Works of Art Sets a New Standard for Customization</h6>
+              <p>The Bugatti Chiron Super Sport ‘Golden Era’ is perhaps the most challenging bespoke...</p>
+            </div>
+          </article>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="notes">
+    <h2>Luxury Insights</h2>
+    <p>Prestige vehicles were and always will be one of the ultimate status symbols. They’ve also proved to be one of
+      the safest investment portfolios which champions a clear advantage over stocks or cryptocurrency. Every exotic or
+      supercar is a rolling work of art that can be enjoyed daily and provide its owner with the thrilling experience of
+      driving a bespoke machine.</p><br>
+    <p>We offer a selection of <b>world-class vehicles</b> and <b>top popular models</b> if you are looking for a luxury
+      car or supercar for sale.
+      From immensely capable Rolls Royce Cullinans, and sublimely fast Ferraris, to impressive Bugattis and Koenigseggs.
+      At PoshAuto, we offer only the finest and most desirable vehicles, including a lineup of <b>rare classic cars</b>
+    </p>
+    <br>
+    <h6 class="text-success">Top Luxury Cars For Sale On PoshAuto</h6>
+    <p>
+      It is always interesting to see what kind of luxury cars are the most popular with our clients. Over the years, we
+      discovered that <b>Porsche</b> is sought-after primarily due to its performance image and high-quality and
+      timeless design. Sports cars like the legendary <b>911</b> are always in demand, but the luxury <b>Panamera</b>
+      and <b>Cayenne</b> are also high on the list.
+    </p>
+    <br>
+    <p>People who are looking for striking supercars and super-fast <b>SUVs</b> are drawn to <b>Lamborghini</b>, which
+      is also a very popular brand. The <b>Urus</b> and <b>Huracan</b> are the best choice for clients looking for
+      performance and unmatched driving dynamics.
+      Of course, one of the key brands in the world of luxury cars is <b>Mercedes</b>, and it is well-represented in our
+      offer not just with <b>luxury and AMG models</b> but also with its highly-exclusive <b>Maybach sub-brand</b>. The
+      German quality, paired with top-notch engineering, is why this company has been on top of the premium car segment
+      for so long.</p><br>
+    <p>The <b>Bugatti</b> is one of the most cherished automotive nameplates, and since its revival in the early 2000s,
+      it has been the golden standard in the hypercar world. Models like <b>Veyron</b> and <b>Chiron</b> are in a league
+      of their own regarding power and performance, which is why the popularity of this iconic brand is totally
+      understandable.
+      For decades, the British car industry has provided us with prime examples of luxury vehicles, mainly via brands
+      like <b>Aston Martin</b>, <b>Rolls-Royce</b>, or <b>Bentley</b>. Combining a bespoke approach, high performance,
+      and irresistible charms, <b>Aston Martin</b> is always in-demand by wealthy customers who prefer to drive their
+      cars themselves. Rolls Royce and Bentley are perfect choices for those who want to sit in the back.</p>
+  </div>
+
+
+  <div class="modal fade" id="signMod" aria-hidden="true" aria-labelledby="signModLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="signModLabel">Sign Up</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control signEmail" id="signfloatingInput" placeholder="name@example.com" />
+            <label for="floatingInput">Email address</label>
+            <div id="signEmailFeedback" class="invalid-feedback">Enter a valid Email.</div>
+          </div>
+          <div class="form-floating bg-dark">
+            <input type="password" class="form-control signPass" id="floatingsignPassword" placeholder="Password" />
+            <label for="floatingsignPassword">Password</label>
+
+            <div id="signPassFeedback" class="invalid-feedback">Password must be morer than 8 Characters.</div>
+          </div>
+
+          <div class="form-floating">
+            <input type="password" class="form-control signConfPass" id="floatingconfirmPassword"
+              placeholder="Confirm Password" />
+            <label for="floatingconfirmPassword">Confirm Password</label>
+
+            <div id="signConfirmPassFeedback" class="invalid-feedback">Passwords dont match.</div>
+          </div>
+          <input type="checkbox" id="agreeSign" />
+
+          <label for="agreeSign" class="agreeSignCheck">I agree to the
+            <a href="/termsPage.html#terms">Terms of Use</a> and
+            <a href="/termsPage.html#privacy">Privacy.</a></label><span class="agreeSignCheckError"></span>
+          <div id="agreeSignFeedback" class="invalid-feedback">You have to agree </div>
+          <button class="btn" id="signBut">Sign Up</button>
+        </div>
+
+        <div class="modal-footer">
+          <p>Already have an account?</p>
+          <a data-bs-target="#log2" data-bs-toggle="modal" style="text-decoration: underline; cursor: pointer"
+            class="text-primary" id="goToLogin">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="log2" aria-hidden="true" aria-labelledby="logLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="logLabel2">Log In</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-floating mb-3">
+            <input type="email" class="form-control logEmail" id="floatingInput2" placeholder="name@example.com" />
+            <label for="floatingInput2">Email address</label>
+            <div id="logEmailFeedback" class="invalid-feedback">Enter a valid Email.</div>
+          </div>
+          <div class="form-floating bg-dark">
+            <input type="password" class="form-control logPass" id="floatinglogPassword" placeholder="Password" />
+            <label for="floatinglogPassword">Password</label>
+
+            <div id="logPasswordFeedback" class="invalid-feedback">Incorrect Password.</div>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="dropdownCheck" />
+            <label class="form-check-label text-light" for="dropdownCheck">
+              Remember me
+            </label>
+          </div>
+          <button class="btn" id="logBut">Log In</button>
+        </div>
+        <div class="modal-footer">
+          <p>
+            New to PoshAuto?<a data-bs-target="#signMod" data-bs-toggle="modal"
+              style="text-decoration: underline; cursor: pointer" class="text-primary" id="goToSignUp">Create
+              Account</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="space">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasRightLabel">
+          Cart(<span class="cartCount">0</span>)
+        </h5>
+        <button type="button" class="btn-close close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <div id="cartContainer" class="cartContainer" style="width: 100%; height: 90vh; overflow-y: auto"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="proceedCheckout" aria-hidden="true" data-bs-backdrop="static"
+    aria-labelledby="proceedCheckoutLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="proceedCheckoutLabel">1. REVIEW YOUR ORDER (<span class="cartNumber"></span>
+            ITEMS)</h1>
+          <button type="button" class="btn-close closeProceed1"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="proceedDetails"></div>
+
+          <div class="subTotal">
+            <h5>SUBTOTAL</h5>
+            <p class="orderPriceCont"><span class="orderPrice"></span></p>
+          </div>
+
+          <div class="shipment">
+            <!-- <p class="text-danger">Note: All Fields are Required*</p>
+            <h6>Shipping to*: </h6>
+            <select class="form-select" aria-label="Default select example" id="shippingCountry">
+              <option value="">--Choose a Country--</option>
+    <option value="Canada">Canada</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Nigeria">Nigeria</option>
+    <option value="India">India</option>
+            </select>
+           
+            <h6>Shipping to:(state or province)* </h6>
+            <select class="form-select" aria-label="Default select example" id="shippingState">
+
+            </select> -->
+          </div>
+
+          <div class="selectDel">
+            <h6>Select delivery: </h6>
+            <div>
+              <h5>FREE</h5>
+              <div>
+
+                <p><b>Regular</b><br> (5-10 business days, tracking)</p>
+
+              </div>
+              <i class="fa-solid fa-circle-check fa-xl" style="color: #c75623;"></i>
+            </div>
+          </div>
+          <button class="btn btn-secondary checkLocation" type="button">CONTINUE TO DELIVERY ADDRESS</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="modal fade" id="proceedCheckout2" aria-hidden="true" data-bs-backdrop="static"
+    aria-labelledby="proceedCheckoutLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="proceedCheckoutLabel2">2. DELIVERY ADDRESS</h1>
+          <button type="button" class="btn-close closeProceed2"></button>
+        </div>
+        <div class="modal-body">
+          <div class="deliveryloader" id="deliveryloader">
+            <img src="/assets/images/posh.png" alt="Loading" class="deliveryLoading-image">
+          </div>
+
+          <div class="mb-3">
+
+            <input type="text" class="form-control" id="deliveryEmail" placeholder="Email*">
+            <div id="deliveryEmailFeedback" class="invalid-feedback">
+              Invalid Email.
+            </div>
+          </div>
+
+
+          <div class="row g-2 mb-3">
+            <div class="col-md">
+              <input type="text" class="form-control" id="deliveryFirstName" placeholder="First name*">
+              <div id="deliveryFirstNameFeedback" class="invalid-feedback">
+                First Name Required.
+              </div>
+            </div>
+
+            <div class="col-md">
+              <input type="text" class="form-control" id="deliveryLastName" placeholder="Last name*">
+              <div id="deliveryLastNameFeedback" class="invalid-feedback">
+                Last Name Required.
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="mb-3">
+            <!-- <label for="deliveryAddress" class="form-label">Delivery address*</label> -->
+            <input type="text" class="form-control" id="deliveryAddress"
+              placeholder="Address e.g Unit 1, 123 Main Street*">
+            <div id="deliveryAddressFeedback" class="invalid-feedback">
+              Address required.
+            </div>
+          </div>
+
+
+
+          <div class="row g-3 mb-3">
+            <div class="col-md-6">
+              <select class="form-select" aria-label="Default select example" id="deliveryCountry">
+                <option value="">Select Country</option>
+                <option value="Canada">Canada</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="India">India</option>
+              </select>
+              <div id="deliveryCountryFeedback" class="invalid-feedback">
+                Country Required.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <select class="form-select" aria-label="Default select example" id="deliveryState">
+                <option value="">State/Region</option>
+              </select>
+              <div id="deliveryStateFeedback" class="invalid-feedback">
+                State Required.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <input type="number" class="form-control" id="deliveryPostalCode" placeholder="ZIP Code">
+              <div id="deliveryZipFeedback" class="invalid-feedback">
+                ZIP Code Required.
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <input type="text" class="form-control" id="deliveryTown" placeholder="Town (optional)">
+            </div>
+          </div>
+
+
+          <div class="mb-3">
+            <!-- <label for="deliveryTelephone" class="form-label">Telephone*</label> -->
+            <input type="number" class="form-control" id="deliveryTelephone" placeholder="Telephone (optional)">
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault" style="font-size: 17px;">
+              Same billing address
+            </label>
+          </div>
+
+          <button class="btn btn-primary proceed3">Proceed</button>
+          <button class="btn btn-secondary closeBack" data-bs-target="#proceedCheckout" data-bs-toggle="modal">Review
+            Cart</button>
+        </div>
+        <div class="modal-footer">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="proceedCheckout3" aria-hidden="true" data-bs-backdrop="static"
+    aria-labelledby="proceedCheckoutLabel3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="proceedCheckoutLabel3">3. SELECT PAYMENT METHOD</h1>
+          <button type="button" class="btn-close closeProceed3"></button>
+        </div>
+        <div class="modal-body">
+          <div class="payMethod">
+
+            <label for="cardRadio" class="cardPay">
+              <div>
+                <i class="fa-regular fa-credit-card" style="color: #ffffff;  font-size: 34px;"></i>
+                <p>Card</p>
+                <input class="form-check-input" type="radio" id="cardRadio" value="" aria-label="...">
+              </div>
+            </label>
+
+
+            <div class="payPal">
+              <i class="fa-brands fa-paypal" style="color: #2790C3; font-size: 34px;"></i>
+
+              <p>Paypal (coming soon)</p>
+              <input class="form-check-input" type="radio" id="checkboxNoLabel2" value="" aria-label="..." disabled>
+            </div>
+
+            <div class="bankTransfer">
+              <i class="fa-solid fa-building-columns" style="color: #ffffff; font-size: 34px;"></i>
+
+              <p>Bank Transfer (coming soon)</p>
+              <input class="form-check-input" type="radio" id="checkboxNoLabel3" value="" aria-label="..." disabled>
+            </div>
+          </div>
+
+          <div id="OrderSummary">
+            <h5>ORDER SUMMARY</h5>
+            <div id="summaryNameAndPrice">
+            </div>
+            <div class="suB">
+              <p>Subtotal <span class="summaryItemPrice text-success"></span></p>
+
+              <div class="loC">
+                <p>Shipping to <b class="summaryLocation">Unknown</b>Regular (5-10 business days, tracking)</p>
+
+                <span>FREE</span>
+              </div>
+              <div class="salesTax">
+                <p>Sales Tax <span class="tax">&pound;500.00</span></p>
+              </div>
+
+              <div class="orderTotal">ORDER TOTAL <span class="summaryTotal"></span></div>
+            </div>
+
+            <div class="form-check subCheck">
+              <input class="form-check-input" type="checkbox" value="" id="iWant">
+              <label class="form-check-label" for="iWant">
+                I'm keen for new releases and subscriber exclusives. Sign me up!*
+              </label>
+            </div>
+          </div>
+
+          <button class="btn btn-secondary payNow" type="button">Pay Now</button>
+          <button class="btn btn-secondary" type="button" data-bs-target="#proceedCheckout2"
+            data-bs-toggle="modal">CHANGE DELIVERY ADDRESS</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade text-light" id="creditInfo" aria-hidden="true" data-bs-backdrop="static"
+    aria-labelledby="proceedCheckoutLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="proceedCheckoutLabel2">Enter Credit Card Information</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="successGif">
+            <img src="/assets/images/check.gif" alt="" width="100%" height="450px">
+          </div>
+          <form id="creditCardForm">
+            <div class="mb-3">
+              <label for="deliverycardName" class="form-label">Name on Card</label>
+              <input type="text" class="form-control form-control-lg" id="deliverycardName" placeholder="John Doe"
+                required>
+              <div id="CardFeedback" class="invalid-feedback">
+                Name is required.
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="deliverycardNumber" class="form-label">Card Number</label>
+              <input type="text" class="form-control form-control-lg" id="deliverycardNumber"
+                placeholder="1234 5678 9012 3456" required>
+              <div id="deliverycardNumberFeedback" class="invalid-feedback">Card number must be 16 digits.</div>
+            </div>
+            <div class="mb-3 d-flex justify-content-between">
+              <div class="w-50 pe-1">
+                <label for="deliveryexpDate" class="form-label">Expiration Date</label>
+                <input type="text" class="form-control" id="deliveryexpDate" placeholder="MM/YY" required>
+                <div id="deliveryexpDateFeedback" class="invalid-feedback">Expiration date must be in MM/YY format.
+                </div>
+              </div>
+              <div class="w-50 ps-1">
+                <label for="deliverycvv" class="form-label">CVV</label>
+                <input type="text" class="form-control" id="deliverycvv" placeholder="123" required>
+                <div id="deliveryCVVFeedback" class="invalid-feedback">CVV must be 3 digits.</div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-primary" id="creditCardBtn">Submit</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+              data-bs-target="#proceedCheckout3">Change Payment Method</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast text-light bg-dark" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header text-light bg-dark">
+        <img src="/assets/images/posh.png" class="me-2" alt="..." width="40" height="40">
+        <strong class="me-auto">Notification</strong>
+        <small>now</small>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Success! 🎉 Your Payment is confirmed! You will receive an Email with the shipping details <br>Thanks for
+        choosing PoshAuto
+      </div>
+    </div>
+  </div>
+  <!-- <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="notificationCanvas"
+        aria-labelledby="notificationCanvasLabel"
+      >
+        <div class="space">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">
+             Notification( <span class="notificationCount"></span> )
+            </h5>
+            <button
+              type="button"
+              class="btn-close close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div
+              id="cartContainer"
+              class="cartContainer"
+              style="width: 100%; height: 90vh; overflow-y: auto"
+            ></div>
+          </div>
+        </div>
+      </div> -->
+  <button id="backToTop"><i class="fa-solid fa-arrow-up" style="color: #278d02;"></i></button>
+  <footer>
+    <div class="footerList">
+      <ul>
+        <li class="top">POSHAUTO</li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+
+        <li><a href="/termsPage.html#terms">Terms</a></li>
+        <li><a href="/testDrive.html">Bookings</a></li>
+        <li><a href="/termsPage.html#privacy">Privacy</a></li>
+      </ul>
+
+      <ul>
+        <li class="top">CATEGORIES</li>
+        <li><a href="/allCars.html">All Brands</a></li>
+        <li><a href="/sell.html">Sell With Us</a></li>
+        <li></li>
+      </ul>
+
+      <div id="newsLetter">
+        <h2>Weekly Luxury Newsletter</h2>
+        <p>
+          Receive the beautifully curated selection of what’s trending in
+          luxury with inside stories and tips from our experts
+        </p>
+
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="footEmailInput" placeholder="name@example.com" />
+          <div id="footEmailFeedback" class="invalid-feedback">Enter Valid email.</div>
+          <button id="checkFootEmail">Subscribe</button>
+        </div>
+
+        <p>
+          By sharing your email, you agree to our
+          <a href="/termsPage.html#terms">Terms of Use</a> and
+          <a href="/termsPage.html#privacy">Privacy</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="copyRight">
+        <img src="/assets/images/posh.png" alt="Logo" width="45" height="35" class="d-inline-block align-text-top" />
+        <span>Copyright © 2024 PoshAuto B.V.®</span>
+      </div>
+
+      <div class="icon">
+        <p><i class="fa-brands fa-instagram" style="color: #ffffff"></i></p>
+        <p><i class="fa-brands fa-whatsapp" style="color: #ffffff"></i></p>
+        <p><i class="fa-brands fa-facebook" style="color: #ffffff"></i></p>
+        <p><i class="fa-brands fa-linkedin" style="color: #ffffff"></i></p>
+        <p><i class="fa-brands fa-youtube" style="color: #ffffff"></i></p>
+        <p><i class="fa-brands fa-x-twitter" style="color: #ffffff"></i></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <!-- <script src="/assets/javaScript/allCars.js"></script> -->
+  <script src="/assets/javaScript/home.js"></script>
+  <script src="/assets/javaScript/fadeandprogress.js"></script>
+</body>
+
+</html>

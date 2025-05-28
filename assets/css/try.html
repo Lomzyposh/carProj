@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Access</title>
+</head>
+<body>
+    <h1>Webcam Feed</h1>
+    <video id="webcam" autoplay playsinline width="640" height="480"></video>
+    <canvas id="snapshot" width="640" height="480" style="display:none;"></canvas>
+    <button id="capture">Take Snapshot</button>
+
+    <script>
+        const video = document.getElementById('webcam');
+        const canvas = document.getElementById('snapshot');
+        const captureButton = document.getElementById('capture');
+        const context = canvas.getContext('2d');
+
+        // Request access to the webcam
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then((stream) => {
+                video.srcObject = stream;
+            })
+            .catch((error) => {
+                console.error('Error accessing webcam:', error);
+            });
+
+        // Capture a frame from the video feed when the button is clicked
+        captureButton.addEventListener('click', () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            canvas.style.display = 'block'; // Show the snapshot
+            alert('Snapshot taken!');
+        });
+    </script>
+</body>
+</html>
