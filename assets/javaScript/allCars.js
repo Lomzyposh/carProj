@@ -2170,7 +2170,7 @@ function displayCars(page) {
 
     carList.innerHTML = `
     <div class="error404">
-      <div><ul><li><a href="/index.html">Go Back to Home</a></li><li><a href="/allCars.html">🔄 Refresh the page</a></li></div>
+      <div><ul><li><a href="/">Go Back to Home</a></li><li><a href="/allCars.html">🔄 Refresh the page</a></li></div>
     <p class="no-cars-message"><i class="fa-solid fa-face-sad-tear"></i> Nothing to see here—just a whole lot of empty space!! 🤷‍♂️</p>
       <img src="/assets/images/electrocuted-caveman-animation-404-error-page.gif" class="gif404" alt="">
       </div>`;
