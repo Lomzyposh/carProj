@@ -16,18 +16,24 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-document.querySelector(".searchGo")?.addEventListener("click", (event) => {
-  event.preventDefault();
-  const searchInput = document.getElementById("searchField")?.value.trim();
+const allSearchForm = document.querySelectorAll(".searchForm");
 
-  if (searchInput) {
-    window.location.href = `allCars.html?searchInput=${encodeURIComponent(
-      searchInput
-    )}`;
-  } else {
-    alert("Please enter a search term.");
-  }
-});
+allSearchForm.forEach((form) => {
+
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchInput = form.querySelector('.searchField').value.trim();
+
+    if (searchInput) {
+      window.location.href = `allCars.html?searchInput=${encodeURIComponent(
+        searchInput
+      )}`;
+    } else {
+      alert("Please enter a search term.");
+    }
+  })
+})
 
 function updateCartCount() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -536,20 +542,21 @@ document.querySelector('.payNow').addEventListener('click', ()=>{
   }
 });
 
-const authButton = document.getElementById("authButton");
+const authButton = document.querySelectorAll(".authBtn");
 
-// Update the button based on user authentication status
 function updateAuthButton() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-  if (isLoggedIn) {
-    authButton.innerHTML = `<a data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>`;
-  } else {
-    authButton.innerHTML = `<a data-bs-target="#signMod" data-bs-toggle="modal"><i class="fa-regular fa-user"></i> Login / SignUp</a>`;
-  }
+  authButton.forEach(btn => {
+    if (isLoggedIn) {
+      btn.innerHTML = `<a data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>`;
+    } else {
+      btn.innerHTML = `<a data-bs-target="#signMod" data-bs-toggle="modal"><i class="fa-regular fa-user"></i> Login / SignUp</a>`;
+    }
+  });
 }
 
-// Handle login logic
+
 function handleLogin() {
   const email = document.querySelector(".logEmail");
   const password = document.querySelector(".logPass");

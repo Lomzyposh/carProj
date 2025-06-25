@@ -1,18 +1,22 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   padding: 0;
   background-color: #25282b;
   overflow-x: hidden;
   color: white;
+  font-family: 'Quicksand', Arial;
 }
+
 /* Scrollbar */
 *::-webkit-scrollbar {
   height: 14px;
   width: 14px;
 }
+
 *::-webkit-scrollbar-track {
   border-radius: 8px;
   background-color: #dfe9eb;
@@ -38,6 +42,7 @@ body {
 *::-webkit-scrollbar-thumb:active {
   background-color: #62a34b;
 }
+
 /* #endregion*/
 .navbar {
   height: 70px;
@@ -77,7 +82,8 @@ header {
   object-fit: cover;
   transition: .4s ease-in-out;
 }
-.custom-brand img:hover{
+
+.custom-brand img:hover {
   filter: drop-shadow(0px 0px 2px black);
 }
 
@@ -87,7 +93,8 @@ header {
   font-size: 22px;
   transition: .4s ease-in-out;
 }
-.custom-brand span:hover{
+
+.custom-brand span:hover {
   filter: drop-shadow(0px 0px 2px gold);
 }
 
@@ -95,14 +102,17 @@ header {
   color: white;
   font-weight: 600;
 }
+
 .navLi li {
   padding: 7px;
 }
+
 .navLi li a:hover {
   color: white;
   border-bottom: 2px solid olive;
   backdrop-filter: blur(10px);
 }
+
 #navSearch {
   width: 240px;
   padding: 10px;
@@ -111,11 +121,12 @@ header {
 }
 
 
-.navbar-collapse {    
+.navbar-collapse {
   transition: height 0.3s ease-in-out, visibility 0.3s ease-in-out;
   text-align: right;
-  padding: 10px; 
+  padding: 10px;
 }
+
 .hamburger {
   display: inline-block;
   width: 24px;
@@ -174,85 +185,105 @@ header {
 .searchGo:hover {
   background-color: #00aa28;
 }
+
 #offcanvasWithBothOptions {
   z-index: 1000;
 }
+
 #offcanvasWithBothOptions .close:hover {
   background-color: rgb(191, 45, 45);
 }
+
 #offcanvasWithBothOptions .close:active {
   background-color: red;
 }
+
 .cartBut {
   background-color: transparent;
   border: 1px solid gold;
 }
+
 .cartBut:hover {
   background-color: #00aa28;
 }
-#authButton{
+
+#authButton {
   background-color: transparent;
   border: 1px solid #00aa28;
   transition: .5s ease-in-out;
   backdrop-filter: blur(10px);
 }
-#authButton:hover{
+
+#authButton:hover {
   background-color: #00aa28;
 }
+
 .btn-close {
   background-color: #404040;
   color: white;
 }
+
 .btn-close:hover {
   background-color: red;
 }
+
 #offcanvasRight {
   padding-bottom: 100px;
   background-color: #1b1d1f;
   color: white;
 }
+
 .cartContainer {
   background-color: #1b1d1f;
   width: 200px;
   padding-bottom: 90px;
 }
+
 .cartContainer .cart-item {
   width: 100%;
   border-bottom: 3px solid gold;
   border-top: 2px solid gold;
   padding: 20px;
 }
+
 .cartContainer .cart-item h5 {
   font-family: "Roboto", serif;
   font-weight: 900;
   font-style: italic;
   padding: 4px;
 }
+
 .cartContainer .cart-item p span {
   color: gold;
   font-weight: bolder;
 }
+
 .cartContainer .cart-item button {
   width: auto;
   padding: 7px;
   border: 3px solid wheat;
   font-weight: bolder;
 }
+
 .cartContainer .cart-item .remove:hover {
   background-color: red;
   color: white;
 }
+
 .cartContainer .cart-item .test:hover {
   background-color: #00aa28;
 }
+
 .cartContainer img {
   width: 100%;
   border-radius: 5px;
   transition: all 1s ease;
 }
+
 .cartContainer img:hover {
   scale: 0.98;
 }
+
 .cartContainer .foot {
   display: flex;
   justify-content: space-between;
@@ -263,30 +294,37 @@ header {
   background-color: #1b1d1f;
   width: 100%;
 }
+
 .cartContainer .foot button {
   width: auto;
   padding: 8px;
   font-weight: bolder;
 }
+
 .cartContainer .foot .clCart {
   border: 2px solid white;
   background-color: white;
 }
+
 .cartContainer .foot .clCart:hover {
   background-color: red;
 }
+
 .cartContainer .foot .proceed {
   background-color: goldenrod;
   border: 2px solid white;
 }
+
 .cartContainer .foot .proceed:hover {
   background-color: gold;
 }
+
 .emptyCartMessage {
   font-size: 20px;
   font-weight: bolder;
   color: white;
 }
+
 /* 
     #cartClose {
       font-size: 17px;
@@ -298,13 +336,16 @@ header {
 .modal {
   backdrop-filter: blur(5px);
 }
+
 #signMod .modal-header h1,
 #log2 .modal-header h1 {
+  margin-left: auto;
   margin-left: 200px;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   letter-spacing: 2px;
 }
+
 #signMod .modal-content,
 #log2 .modal-content {
   background-color: #1b1d1f;
@@ -316,21 +357,28 @@ header {
   color: white;
   margin: auto;
 }
+
 #signMod .form-floating,
 #log2 .form-floating {
   margin-bottom: 20px;
   background-color: #232323;
 }
+
 #signMod .form-floating input {
   color: black;
 }
-#signMod .form-floating label, #log2 .form-floating label{
+
+#signMod .form-floating label,
+#log2 .form-floating label {
   color: rgb(86, 86, 86);
 }
+
 #signMod .modal-body,
 #log2 .modal-body {
-  background-color: #333;;
+  background-color: #333;
+  ;
 }
+
 #signMod .modal-body button,
 #log2 .modal-body button {
   width: 100%;
@@ -339,10 +387,12 @@ header {
   color: white;
   font-weight: bolder;
 }
+
 #signMod .modal-body button:hover,
 #log2 .modal-body button:hover {
   background-color: #00aa28;
 }
+
 #signEmailError,
 #signPassError,
 #signConfirmPassError,
@@ -356,6 +406,7 @@ header {
   cursor: pointer;
   padding: 4px;
 }
+
 .modal-dialog-bottom-right {
   position: fixed;
   top: 10px;
@@ -369,7 +420,9 @@ header {
   font-weight: bolder;
   color: red;
 }
-.logBody, .signBody{
+
+.logBody,
+.signBody {
   height: 500px;
 }
 
@@ -389,22 +442,27 @@ header {
   transform: translateY(20px);
   transition: opacity 0.6s, transform 0.6s;
 }
+
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
+
 .modal-body {
   background-color: #404040;
 }
+
 .modal-header {
   background-color: #333;
   color: white;
 }
+
 .sellStart {
   width: 100%;
   margin-top: 100px;
   padding: 20px;
 }
+
 .sellStart h2,
 .offers h2,
 .faq h3 {
@@ -412,35 +470,43 @@ header {
   font-size: 40px;
   font-weight: bolder;
 }
+
 .sellStart img {
   width: 500px;
   max-width: 100%;
   height: 300px;
   filter: brightness(80%);
 }
+
 .sellStart div {
   width: 500px;
   max-width: 100%;
 }
+
 .sellStart section {
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-around;
 }
+
 .sellStart section ul {
   list-style-type: none;
 }
+
 .sellStart section button {
   font-weight: bolder;
 }
+
 .sellStart section button:hover {
   background-color: #00aa28;
 }
-.payCom .modal-body{
+
+.payCom .modal-body {
   background-color: #25282b;
 }
-.payCom .modal-header div {
-  margin-left: 150px;
+
+.payCom .modal-header div { 
+  margin: auto;
   color: green;
 }
 
@@ -451,6 +517,7 @@ header {
   height: 30px;
   border-radius: 30px;
 }
+
 .payCom .modal-body input {
   background-color: #333333;
   color: white;
@@ -459,73 +526,91 @@ header {
 .payCom .modal-body input::placeholder {
   color: grey;
 }
+
 .payCom {
   color: white;
 }
+
 .payCom .modal-content {
   background-color: #25282b;
   padding: 30px;
   font-weight: bolder;
 }
+
 .payCom .modal-content .btn-close {
   position: relative;
   bottom: 50px;
   left: 32px;
   background-color: wheat;
 }
+
 .payCom .modal-content .btn-close:hover {
   background-color: red;
 }
+
 .payCom .modal-content h4 {
   padding: 5px;
 }
-#modPrice{
+
+#modPrice {
   font-family: inter, serif;
   font-weight: bolder;
   color: gold;
 }
+
 .agreeError {
   display: none;
 }
+
 .offers {
   padding: 20px;
   background-color: #2d3032;
 }
+
 .offerList {
   padding: 20px;
 }
+
 .offerList .card {
   padding: 20px;
 }
+
 .offerList .col {
   padding: 30px;
   height: 300px;
 }
+
 .offerList .col button {
   width: 240px;
   background-color: #5bb23c;
   transition: all 0.4s ease-in-out;
 }
+
 .offerList .col button:hover {
   background-color: #00aa28;
 }
+
 .offerList .col .card {
   background-color: #333333;
   color: white;
 }
+
 #whatYouGet {
   padding: 30px;
 }
+
 #whatYouGet h1 {
   font-family: prata, serif;
   text-align: center;
   padding: 30px;
 }
+
 #whatYouGet .col .card {
   background-color: #333333;
   color: white;
   padding: 20px;
 }
+
 .log {
   margin: auto;
   width: 50px;
@@ -533,31 +618,38 @@ header {
   border-radius: 50%;
   background-color: rgb(37, 36, 36);
 }
+
 .log i {
   font-size: 30px;
   position: relative;
   left: 10px;
   top: 9px;
 }
+
 .faq {
   padding: 30px;
 }
+
 .faq .accordion-body {
   background-color: #25282b;
   border: 1px solid grey;
 }
+
 .faq .accordion-collapse {
   font-size: 16px;
   color: rgb(236, 179, 179);
 }
+
 .faq .accordion-flush {
   border: 2px solid gray;
 }
+
 .ready {
   width: 100%;
   padding: 120px;
   background-color: #2d3032;
 }
+
 .ready button {
   width: 200px;
   padding: 10px;
@@ -565,15 +657,18 @@ header {
   border-radius: 5px;
   transition: all 0.4s ease-in-out;
 }
-.ready h2{
+
+.ready h2 {
   width: 100%;
   color: #00aa28;
   font-family: prata, Arial;
 }
+
 .ready button:hover {
   background-color: #00aa28;
 }
-#deliveryloader{
+
+#deliveryloader {
   position: fixed;
   z-index: 2000;
   width: 450px;
@@ -581,18 +676,20 @@ header {
   backdrop-filter: blur(2px);
   display: none;
 }
+
 .deliveryLoading-image {
-  width: 80px; 
-  height: 80px; 
+  width: 80px;
+  height: 80px;
   position: fixed;
   top: 150px;
   left: 200px;
-  animation: blink 1s infinite; 
+  animation: blink 1s infinite;
   border-radius: 50px;
   border: 7px solid #1b1d1f;
-  
+
 }
-.successGif{
+
+.successGif {
   position: fixed;
   z-index: 2000;
   width: 500px;
@@ -600,9 +697,10 @@ header {
   backdrop-filter: blur(2px);
   display: none;
 }
-.successGif img{
-  width: 100px; 
-  height: 100px; 
+
+.successGif img {
+  width: 100px;
+  height: 100px;
   position: fixed;
   top: 150px;
   left: 170px;
@@ -610,15 +708,24 @@ header {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 0; scale: 0.8; }
-  50% { opacity: 1; }
+
+  0%,
+  100% {
+    opacity: 0;
+    scale: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
 }
 
-#proceedCheckout .modal-body{
+#proceedCheckout .modal-body {
   color: white;
   font-family: inter, serif;
 }
-#proceedCheckout .modal-body button{
+
+#proceedCheckout .modal-body button {
   width: 100%;
   margin-top: 40px;
   transition: .4s ease-in-out;
@@ -626,23 +733,27 @@ header {
   padding: 10px;
 }
 
-#proceedCheckout .modal-body button:hover{
-  background-color:#04751f;
+#proceedCheckout .modal-body button:hover {
+  background-color: #04751f;
 }
-.orderPriceCont{
+
+.orderPriceCont {
   font-weight: bolder;
   color: gold;
   font-family: prata, inter, arial;
   letter-spacing: 1px;
 }
-.orderPrice{
+
+.orderPrice {
   letter-spacing: 1px;
 }
-#orderItemBrand{
+
+#orderItemBrand {
   font-family: prata, serif;
   font-weight: bolder;
 }
-.details{
+
+.details {
   display: flex;
   justify-content: space-evenly;
   gap: 5px;
@@ -650,41 +761,53 @@ header {
   border-bottom: 2px solid grey;
   margin-bottom: 10px;
 }
- .details img{
+
+.details img {
   width: 200px;
   height: 150px;
   object-fit: cover;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-.details .orderDet{
+
+.details .orderDet {
   width: 100%;
 }
-.details .orderDet p{
+
+.details .orderDet p {
   color: white;
   font-weight: bolder;
 }
-.details .orderDet p span{
+
+.details .orderDet p span {
   color: #00aa28;
 }
-.details .orderDet button{
+
+.details .orderDet button {
   border: none;
 }
-.details .orderDet button:hover{
+
+.details .orderDet button:hover {
   background-color: red !important;
 }
-.subTotal{display: flex; justify-content: space-between;}
-.subTotal h5{
+
+.subTotal {
+  display: flex;
+  justify-content: space-between;
+}
+
+.subTotal h5 {
   font-family: prata, serif;
   font-weight: bolder;
 }
-.shipment select{
+
+.shipment select {
   margin-top: 20px;
   margin-bottom: 20px;
 }
 
 
-.selectDel div{
+.selectDel div {
   background-color: rgb(255, 237, 203);
   display: flex;
   justify-content: space-between;
@@ -694,23 +817,30 @@ header {
   height: 70px;
   border-radius: 5px;
 }
-#proceedCheckout2, #proceedCheckout3{
+
+#proceedCheckout2,
+#proceedCheckout3 {
   color: white;
   font-family: Inter, serif;
 }
-#proceedCheckout2 input, #proceedCheckout2 select{
- padding: 10px;
+
+#proceedCheckout2 input,
+#proceedCheckout2 select {
+  padding: 10px;
 }
-#proceedCheckout2 .modal-footer{
+
+#proceedCheckout2 .modal-footer {
   background-color: #232323;
 }
-.payMethod{
+
+.payMethod {
   background-color: #333333;
   border-radius: 6px;
   margin-bottom: 70px;
   padding: 10px
 }
-.payMethod div{
+
+.payMethod div {
   display: flex;
   gap: 20px;
   /* justify-content: space-evenly; */
@@ -719,117 +849,145 @@ header {
   padding: 3px;
   position: relative;
 }
-.payPal, .bankTransfer{
+
+.payPal,
+.bankTransfer {
   cursor: not-allowed;
   filter: brightness(30%);
 }
+
 /* .payMethod div img{bor} */
-.payMethod .cardPay{
+.payMethod .cardPay {
   cursor: pointer;
 }
-.cardPay{
+
+.cardPay {
   width: 100%;
   cursor: pointer;
 }
 
-.payMethod input[type='radio']{
+.payMethod input[type='radio'] {
   position: absolute;
   right: 10px;
 }
 
-#OrderSummary{
+#OrderSummary {
   background-color: #333333;
   padding: 20px;
   border-radius: 5px;
 }
-#OrderSummary h5{
+
+#OrderSummary h5 {
   border-bottom: 1px solid white;
   padding-bottom: 7px;
 }
-#summaryNameAndPrice p, #OrderSummary .suB p,#OrderSummary .loC, .salesTax p, .orderTotal{
+
+#summaryNameAndPrice p,
+#OrderSummary .suB p,
+#OrderSummary .loC,
+.salesTax p,
+.orderTotal {
   display: flex;
   justify-content: space-between;
 }
-#summaryNameAndPrice{
+
+#summaryNameAndPrice {
   border-bottom: 1px solid white;
   margin-bottom: 10px;
 }
-.summaryLocation{
+
+.summaryLocation {
   color: greenyellow
 }
-.summaryTotal{
+
+.summaryTotal {
   color: gold;
 }
-.suB p{
+
+.suB p {
   font-weight: bolder;
 }
-.orderTotal{
+
+.orderTotal {
   background-color: #232323;
   padding: 20px;
 }
-.loC p{
+
+.loC p {
   display: flex;
   flex-direction: column;
   font-size: 14px;
   color: grey;
 }
-.salesTax p{
+
+.salesTax p {
   font-size: 15px;
 }
-.orderTotal{
+
+.orderTotal {
   width: 100%;
   font-weight: bolder;
   font-size: 19px;
 }
-.subCheck{
+
+.subCheck {
   margin-top: 10px;
   font-size: 13px;
 }
-#proceedCheckout2 .modal-body .proceed3{
+
+#proceedCheckout2 .modal-body .proceed3 {
   width: 100%;
   padding: 10px;
   margin-top: 30px;
   background-color: #198754;
   font-weight: bolder;
 }
-#proceedCheckout2 .modal-body .proceed3:hover{
+
+#proceedCheckout2 .modal-body .proceed3:hover {
   background-color: #03b361;
 }
-#proceedCheckout2 .modal-body .closeBack{
+
+#proceedCheckout2 .modal-body .closeBack {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
   font-weight: bolder;
 }
-#proceedCheckout3 .modal-body button{
+
+#proceedCheckout3 .modal-body button {
   width: 100%;
   padding: 10px;
   margin-top: 30px;
 }
-#proceedCheckout3 .modal-body .payNow{
+
+#proceedCheckout3 .modal-body .payNow {
   border: none;
   background-color: #c75623;
   filter: drop-shadow(0px 10px 15px #000);
   transition: .4s ease-in-out;
 }
-#proceedCheckout3 .modal-body .payNow:hover{
+
+#proceedCheckout3 .modal-body .payNow:hover {
   background-color: orangered;
 }
-#creditInfo .modal-body button{
+
+#creditInfo .modal-body button {
   width: 100%;
   padding: 10px;
   margin-top: 30px;
 }
-#creditInfo .modal-body #creditCardBtn{
+
+#creditInfo .modal-body #creditCardBtn {
   background-color: #034d15;
   border: none;
   font-weight: bolder;
 }
-#creditInfo .modal-body #creditCardBtn:hover{
+
+#creditInfo .modal-body #creditCardBtn:hover {
   background-color: #00aa28;
 }
 
-.toast-header img{
+.toast-header img {
   border-radius: 30px;
 }
 
@@ -841,10 +999,10 @@ header {
   color: red;
   border: none;
   border-radius: 50%;
-   width: 50px;
+  width: 50px;
   height: 50px;
   font-size: 20px;
-  display: none; 
+  display: none;
   cursor: pointer;
   align-items: center;
   justify-content: center;
@@ -862,6 +1020,7 @@ footer {
   color: white;
   border: 2px solid grey;
 }
+
 .footerList {
   max-width: 1200px;
   display: flex;
@@ -869,26 +1028,32 @@ footer {
   flex-wrap: wrap;
   padding: 20px;
 }
+
 .footerList ul {
   font-weight: lighter;
   list-style-type: none;
 }
+
 .footerList li {
   margin-bottom: 20px;
 }
+
 .footerList li a {
   text-decoration: none;
   color: white;
   padding-bottom: 10px;
 }
+
 .footerList li a:hover {
   border-bottom: 2px solid grey;
 }
+
 .footerList .top {
   color: grey;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
 }
+
 footer .bottom {
   display: flex;
   justify-content: space-between;
@@ -898,32 +1063,40 @@ footer .bottom {
   /* margin-left: 100px; */
   border-top: 2px solid grey;
 }
+
 footer .bottom img {
   width: 40px;
   height: 40px;
   border-radius: 40px;
 }
+
 .copyRight span {
   font-size: 14px;
   position: relative;
   top: 5px;
 }
+
 footer .icon {
   display: flex;
   gap: 20px;
 }
+
 #newsLetter {
   width: 500px;
 }
+
 #newsLetter h2 {
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+
 #newsLetter p {
   color: grey;
 }
+
 #newsLetter .form-floating input {
   width: 400px;
 }
+
 #newsLetter button {
   width: 400px;
   margin-top: 10px;
@@ -931,88 +1104,165 @@ footer .icon {
   border: none;
   font-weight: bolder;
 }
+
 #newsLetter button:hover {
   background-color: greenyellow;
   color: green;
 }
 
-@media (max-width: 1200px) {
-  .custom-brand span{
+/* @media (max-width: 1200px) {
+  .custom-brand span {
     display: none;
   }
-}
+} */
 
 
-@media only screen and (max-width: 1000px) {
-  body{
-    width: 100%;
-    max-width: 1200px;
+@media (max-width: 1200px) {
+  .custom-brand span {
+    display: none;
   }
-  .navbar {
-    border: none;
-  }
-  .custom-brand img {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
-    object-fit: cover;
-  }
-  .container-fluid button {
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+
+  .footerList {
     padding: 10px;
   }
 
-  .navbar-toggler:hover {
-    background-color: #198754; /* Add a hover effect */
-    transition: background-color 0.3s ease-in-out;
-  }
-  .navbar-collapse button{
-    border-radius: 0;
-    width: auto;
-    border-radius: 10px;
-  }
-    .navbar-collapse{
-    background-color: #25282b;
-  }
-  
-  .nav-item a {
-    transition: color 0.3s ease-in-out;
-  }
-  
-  .nav-item a:hover {
-    color: #198754;
-  }
-  
-  .sellStart{
-    margin-top: 130px;
-  }
-  .ready h2 {
-    width: 200px;
-    font-size: 35px;
+  #newsLetter {
+    width: 100%;
   }
 
-  .contact-container{
+  #newsLetter .form-floating input,
+  #newsLetter button {
     width: 100%;
+    min-width: 0;
   }
-  .copyRight, .icon{
-    margin: auto;
-  }
-  .payCom .modal-header div {
-    margin-left: 100px;
-  }
-  .fFlex .box{
+}
+
+@media (max-width: 900px) {
+
+  .sellStart img,
+  .sellStart div {
     width: 100%;
-    border-bottom: 2px solid gold;
+    height: auto;
   }
-  #newsLetter {
-    display: flex;
+
+  .sellStart section {
     flex-direction: column;
     align-items: center;
-    text-align: justify;
   }
-  #newsLetter .form-floating input, #newsLetter #checkFootEmail{
-    width: 300px;
+
+  .offerList .col {
+    padding: 10px;
+    height: auto;
+  }
+
+  .ready {
+    padding: 40px;
+  }
+
+  .details img {
+    width: 100px;
+    height: 80px;
+  }
+  
+}
+
+@media (max-width: 700px) {
+  header {
+    height: 70px;
+    padding: 5px;
+  }
+
+  .sellStart {
+    margin-top: 80px;
+    padding: 10px;
+  }
+
+  .sellStart h2,
+  .offers h2,
+  .faq h3 {
+    font-size: 28px;
+  }
+
+  .footerList {
+    padding: 10px;
+  }
+
+  .ready {
+    padding: 20px;
+  }
+
+  .faq {
+    padding: 10px;
+  }
+
+  #whatYouGet {
+    padding: 10px;
+  }
+
+}
+
+@media (max-width: 500px) {
+  .custom-brand img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .navbar {
+    height: 50px;
+  }
+
+  .sellStart img {
+    height: 180px;
+  }
+
+  .cartContainer {
+    width: 100%;
+    padding-bottom: 60px;
+  }
+
+  .cartContainer .cart-item {
+    padding: 10px;
+  }
+
+  .cartContainer .foot {
+    padding: 5px;
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .details img {
+    width: 100%;
+    height: 120px;
+  }
+
+  #backToTop {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    bottom: 20px;
+    right: 10px;
+  }
+
+  #newsLetter {
+    padding: 10px;
+  }
+
+  #newsLetter .form-floating input,
+  #newsLetter button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footerList {
+    padding: 5px;
+  }
+
+  footer .bottom {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
   }
 }

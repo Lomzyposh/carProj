@@ -4,34 +4,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Event listener for toggling the navbar
   toggler.addEventListener("click", () => {
-      toggler.classList.toggle("toggled");
+    toggler.classList.toggle("toggled");
   });
 
   navCollapse.addEventListener("hidden.bs.collapse", () => {
-      toggler.classList.remove("toggled");
+    toggler.classList.remove("toggled");
   });
 
   navCollapse.addEventListener("shown.bs.collapse", () => {
-      toggler.classList.add("toggled");
+    toggler.classList.add("toggled");
   });
 });
 
+const hamburger = document.querySelector('#hamburger');
+const navbarNav = document.querySelector('#navbarNav');
+const line = hamburger.querySelector('.line i');
 
-
-
-
-document.querySelector(".searchGo")?.addEventListener("click", (event) => {
-  event.preventDefault();
-  const searchInput = document.getElementById("searchField")?.value.trim();
-
-  if (searchInput) {
-    window.location.href = `allCars.html?searchInput=${encodeURIComponent(
-      searchInput
-    )}`;
-  } else {
-    alert("Please enter a search term.");
-  }
+navbarNav.addEventListener('show.bs.collapse', () => {
+  line.classList.remove('fa-bars');
+  line.classList.add('fa-xmark');
 });
+
+navbarNav.addEventListener('hide.bs.collapse', () => {
+  line.classList.remove('fa-xmark');
+  line.classList.add('fa-bars');
+});
+
+
+
+
+const allSearchForm = document.querySelectorAll(".searchForm");
+
+allSearchForm.forEach((form) => {
+
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchInput = form.querySelector('.searchField').value.trim();
+
+    if (searchInput) {
+      window.location.href = `allCars.html?searchInput=${encodeURIComponent(
+        searchInput
+      )}`;
+    } else {
+      alert("Please enter a search term.");
+    }
+  })
+})
 
 function updateCartCount() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
@@ -74,7 +93,7 @@ function displayCartItems() {
     return;
   }
   cartItems.forEach((item, index) => {
-    const loca  = checkLocation(item.id - 1);
+    const loca = checkLocation(item.id - 1);
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-item");
     cartItem.style.cursor = 'pointer';
@@ -89,51 +108,51 @@ function displayCartItems() {
             
         
             `;
-            
+
     document.querySelector(".cartContainer .foot").style.display = "block";
     cartContainer.prepend(cartItem);
-    
+
     const showAgain = document.querySelectorAll('.showModAgain');
 
-    showAgain.forEach( kl =>{
-      kl.addEventListener('click', ()=>{
-      document.getElementById("modalLocation").textContent = loca;
-      document.getElementById("year").textContent = item.year;
-      document.getElementById("modalImage").src = item.mainImg;
-      document.getElementById("modalImage").alt = item.model;
-      document.getElementById("image1").src = item.image1;
-      document.getElementById("image1").alt = `${item.brand} ${item.model}`;
-      document.getElementById("image2").src = item.image2;
-      document.getElementById("image2").alt = `${item.brand} ${item.model}`;
-      document.getElementById("image3").src = item.image3;
-      document.getElementById("image3").alt = `${item.brand} ${item.model}`;
-      document.getElementById("modalPrice").innerHTML = `${item.price}`;
-      document.getElementById("modalYear").textContent = item.year;
-      document.getElementById("modalBrand").textContent = item.brand;
-      document.getElementById("modalModel").textContent = item.model;
-      document.getElementById("modalBodyStyle").textContent = item.bodyStyle;
-      document.getElementById("modalEngine").textContent = item.engine;
-      document.getElementById("modalfuelType").textContent = item.fuelType;
-      document.getElementById("modalexColor").textContent = item.extColor;
-      document.getElementById("modalintColor").textContent = item.intColor;
-      document.getElementById(
-        "askMessage"
-      ).value = `I'd like to know if the ${item.condition} ${item.year} ${item.brand} you have listed on PoshAuto is still available. ☺️`;
+    showAgain.forEach(kl => {
+      kl.addEventListener('click', () => {
+        document.getElementById("modalLocation").textContent = loca;
+        document.getElementById("year").textContent = item.year;
+        document.getElementById("modalImage").src = item.mainImg;
+        document.getElementById("modalImage").alt = item.model;
+        document.getElementById("image1").src = item.image1;
+        document.getElementById("image1").alt = `${item.brand} ${item.model}`;
+        document.getElementById("image2").src = item.image2;
+        document.getElementById("image2").alt = `${item.brand} ${item.model}`;
+        document.getElementById("image3").src = item.image3;
+        document.getElementById("image3").alt = `${item.brand} ${item.model}`;
+        document.getElementById("modalPrice").innerHTML = `${item.price}`;
+        document.getElementById("modalYear").textContent = item.year;
+        document.getElementById("modalBrand").textContent = item.brand;
+        document.getElementById("modalModel").textContent = item.model;
+        document.getElementById("modalBodyStyle").textContent = item.bodyStyle;
+        document.getElementById("modalEngine").textContent = item.engine;
+        document.getElementById("modalfuelType").textContent = item.fuelType;
+        document.getElementById("modalexColor").textContent = item.extColor;
+        document.getElementById("modalintColor").textContent = item.intColor;
+        document.getElementById(
+          "askMessage"
+        ).value = `I'd like to know if the ${item.condition} ${item.year} ${item.brand} you have listed on PoshAuto is still available. ☺️`;
 
-      const modal = new bootstrap.Modal(
-        document.getElementById("staticBackdrop")
-      );
-      modal.show();
+        const modal = new bootstrap.Modal(
+          document.getElementById("staticBackdrop")
+        );
+        modal.show();
 
-    });
-  })
-    document.querySelector('.proceed').addEventListener('click', ()=>{
+      });
+    })
+    document.querySelector('.proceed').addEventListener('click', () => {
       const modal = new bootstrap.Modal(document.getElementById('proceedCheckout'))
       modal.show();
       proceed();
     });
 
-    
+
   });
 }
 
@@ -193,7 +212,7 @@ const countryStates = {
 
 // countrySelect.addEventListener('change', () => {
 //   const selectedCountry = countrySelect.value;
-  
+
 //   stateSelect.innerHTML = '<option value="">--Choose a State/Region--</option>';
 
 //   if (countryStates[selectedCountry]) {
@@ -204,7 +223,7 @@ const countryStates = {
 //       stateSelect.appendChild(option);
 //     });
 //   }
-  
+
 // });
 
 
@@ -215,10 +234,10 @@ const stateSelect2 = document.getElementById('deliveryState');
 countrySelect2.addEventListener('change', () => {
   const selectedCountry = countrySelect2.value;
   document.querySelector('.summaryLocation').innerHTML = countrySelect2.value;
-  
+
   console.log(countrySelect2.value)
 
-  
+
   stateSelect2.innerHTML = '<option value="">State/Region</option>';
 
   if (countryStates[selectedCountry]) {
@@ -228,7 +247,7 @@ countrySelect2.addEventListener('change', () => {
       option.textContent = state;
       stateSelect2.appendChild(option);
     });
- 
+
   }
 });
 
@@ -236,7 +255,7 @@ countrySelect2.addEventListener('change', () => {
 
 
 
-function proceed(){
+function proceed() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const proceedDetails = document.querySelector('.proceedDetails');
   const totalPriceContainer = document.querySelector('.orderPrice');
@@ -246,7 +265,7 @@ function proceed(){
 
   const getOrGeneratePrice = (itemId, defaultPrice) => {
     const storedPrices = JSON.parse(localStorage.getItem("itemPrices")) || {};
-    
+
     if (storedPrices[itemId]) {
       return storedPrices[itemId];
     } else {
@@ -281,13 +300,13 @@ function proceed(){
             </div>
            `;
 
-           totalPrice += numericPrice;
-            proceedDetails.append(details);
+    totalPrice += numericPrice;
+    proceedDetails.append(details);
   });
-  totalPriceContainer.textContent = '£'+ totalPrice.toLocaleString();
+  totalPriceContainer.textContent = '£' + totalPrice.toLocaleString();
 }
 
-function proceed3(){
+function proceed3() {
   const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const summaryDetails = document.getElementById('summaryNameAndPrice')
 
@@ -296,7 +315,7 @@ function proceed3(){
 
   const getOrGeneratePrice = (itemId, defaultPrice) => {
     const storedPrices = JSON.parse(localStorage.getItem("itemPrices")) || {};
-    
+
     if (storedPrices[itemId]) {
       return storedPrices[itemId];
     } else {
@@ -320,10 +339,10 @@ function proceed3(){
     totalPrice += numericPrice;
     summaryDetails.append(summary);
 
-    const tax = (2 /100) * totalPrice;
+    const tax = (2 / 100) * totalPrice;
     document.querySelector('.tax').innerHTML = '£' + tax.toLocaleString();
 
-    document.querySelector('.summaryItemPrice').innerHTML = '£'+ totalPrice.toLocaleString();
+    document.querySelector('.summaryItemPrice').innerHTML = '£' + totalPrice.toLocaleString();
     document.querySelector('.summaryTotal').innerHTML = '£' + (tax + totalPrice).toLocaleString();
   });
 }
@@ -336,38 +355,38 @@ const deliveryAddress = document.getElementById('deliveryAddress');
 const deliveryPostalCode = document.getElementById('deliveryPostalCode');
 
 const similer = [deliveryFirstName, deliveryLastName, deliveryAddress, deliveryPostalCode, countrySelect2, stateSelect2]
-function deliveryVerify(){
-  
+function deliveryVerify() {
+
   let deliveryValid = true;
-  if(deliveryEmail.value === '' || !emailPattern.test(deliveryEmail.value)){
-      deliveryEmail.classList.add('is-invalid')
-      deliveryValid = false;
-  }else{
+  if (deliveryEmail.value === '' || !emailPattern.test(deliveryEmail.value)) {
+    deliveryEmail.classList.add('is-invalid')
+    deliveryValid = false;
+  } else {
     deliveryEmail.classList.remove('is-invalid');
   }
 
-  similer.forEach((same) =>{
-    if(same.value === ''){
+  similer.forEach((same) => {
+    if (same.value === '') {
       same.classList.add('is-invalid')
       deliveryValid = false;
-    }else{
+    } else {
       same.classList.remove('is-invalid')
     }
   });
-  if(deliveryValid){
+  if (deliveryValid) {
     console.log('bad')
     const deliveryloader = document.getElementById("deliveryloader");
     setTimeout(() => {
       deliveryloader.style.display = 'block';
     }, 500)
 
-    setTimeout(()=>{
+    setTimeout(() => {
       deliveryloader.style.display = 'none';
-     const fModal = bootstrap.Modal.getInstance(document.getElementById('proceedCheckout2'))
-    fModal.hide();
-    const modal = new bootstrap.Modal(document.getElementById('proceedCheckout3'))
-    modal.show();
-    proceed3();
+      const fModal = bootstrap.Modal.getInstance(document.getElementById('proceedCheckout2'))
+      fModal.hide();
+      const modal = new bootstrap.Modal(document.getElementById('proceedCheckout3'))
+      modal.show();
+      proceed3();
     }, 2500)
   }
 }
@@ -384,28 +403,28 @@ document.querySelector('.proceed3').addEventListener('click', deliveryVerify)
 //   proceed();
 // });
 
-document.querySelector('.checkLocation').addEventListener('click', ()=>{
-    const modal = bootstrap.Modal.getInstance(
-      document.getElementById("proceedCheckout")
-    )
-    modal.hide();
+document.querySelector('.checkLocation').addEventListener('click', () => {
+  const modal = bootstrap.Modal.getInstance(
+    document.getElementById("proceedCheckout")
+  )
+  modal.hide();
 
-    const nextModal = new bootstrap.Modal(document.getElementById('proceedCheckout2'));
-    nextModal.show();
+  const nextModal = new bootstrap.Modal(document.getElementById('proceedCheckout2'));
+  nextModal.show();
 });
 
 
-document.querySelector('.closeProceed1').addEventListener('click', ()=>{
+document.querySelector('.closeProceed1').addEventListener('click', () => {
   const modal = bootstrap.Modal.getInstance(
     document.getElementById("proceedCheckout")
   )
   modal.hide();
   document.body.style.overflow = ""; // Reset overflow
-const backdrop = document.querySelector(".modal-backdrop");
-if (backdrop) backdrop.remove();
+  const backdrop = document.querySelector(".modal-backdrop");
+  if (backdrop) backdrop.remove();
 });
 
-document.querySelector('.closeProceed2').addEventListener('click', ()=>{
+document.querySelector('.closeProceed2').addEventListener('click', () => {
   const modal = bootstrap.Modal.getInstance(
     document.getElementById("proceedCheckout2")
   )
@@ -415,7 +434,7 @@ document.querySelector('.closeProceed2').addEventListener('click', ()=>{
   if (backdrop) backdrop.remove();
 })
 
-document.querySelector('.closeProceed3').addEventListener('click', ()=>{
+document.querySelector('.closeProceed3').addEventListener('click', () => {
   const modal = bootstrap.Modal.getInstance(
     document.getElementById("proceedCheckout3")
   )
@@ -432,8 +451,8 @@ document.getElementById("proceedCheckout").addEventListener("hidden.bs.modal", (
   if (backdrop) backdrop.remove();
 });
 
-document.getElementById('creditCardBtn').addEventListener('click', function() {
-  
+document.getElementById('creditCardBtn').addEventListener('click', function () {
+
 
   const name = document.getElementById('deliverycardName').value.trim();
   const deliverycardNumber = document.getElementById('deliverycardNumber').value.trim();
@@ -444,18 +463,18 @@ document.getElementById('creditCardBtn').addEventListener('click', function() {
 
   // Validate Name
   if (name === '') {
-      document.getElementById('deliverycardName').classList.add('is-invalid');
-      valid = false;
+    document.getElementById('deliverycardName').classList.add('is-invalid');
+    valid = false;
   }
-  else{
+  else {
     document.getElementById('deliverycardName').classList.remove('is-invalid');
   }
 
   // Validate Card Number
   if (!/^\d{16}$/.test(deliverycardNumber)) {
-      document.getElementById('deliverycardNumber').classList.add('is-invalid');
-      valid = false;
-  }else{
+    document.getElementById('deliverycardNumber').classList.add('is-invalid');
+    valid = false;
+  } else {
     document.getElementById('deliverycardNumber').classList.remove('is-invalid');
   }
 
@@ -463,60 +482,60 @@ document.getElementById('creditCardBtn').addEventListener('click', function() {
   const expParts = deliveryexpDate.split('/');
   if (expParts.length !== 2 || !/^\d{2}$/.test(expParts[0]) || !/^\d{2}$/.test(expParts[1])) {
     document.getElementById('deliveryexpDate').classList.add('is-invalid')
-      valid = false;
+    valid = false;
   } else {
-      const month = parseInt(expParts[0], 10);
-      const year = parseInt(expParts[1], 10) + 2000; // Assuming YY is in 2000s
-      const expiryDate = new Date(year, month - 1); // Month is 0-indexed
-      const today = new Date();
-      if (expiryDate < today) {
-        document.getElementById('deliveryexpDate').classList.add('is-invalid')
-          document.getElementById('deliveryexpDateFeedback').textContent = 'Card has expired.';
-          valid = false;
-      }
-      else{
-        document.getElementById('deliveryexpDate').classList.remove('is-invalid')
-      }
+    const month = parseInt(expParts[0], 10);
+    const year = parseInt(expParts[1], 10) + 2000; // Assuming YY is in 2000s
+    const expiryDate = new Date(year, month - 1); // Month is 0-indexed
+    const today = new Date();
+    if (expiryDate < today) {
+      document.getElementById('deliveryexpDate').classList.add('is-invalid')
+      document.getElementById('deliveryexpDateFeedback').textContent = 'Card has expired.';
+      valid = false;
+    }
+    else {
+      document.getElementById('deliveryexpDate').classList.remove('is-invalid')
+    }
   }
 
   // Validate CVV
   if (!/^\d{3}$/.test(deliverycvv)) {
-      document.getElementById('deliverycvv').classList.add('is-invalid');
-      valid = false;
+    document.getElementById('deliverycvv').classList.add('is-invalid');
+    valid = false;
   }
-  else{
+  else {
     document.getElementById('deliverycvv').classList.remove('is-invalid')
   }
 
   if (valid) {
     const successGif = document.querySelector(".successGif");
     setTimeout(() => {
-        successGif.style.display = 'block';
+      successGif.style.display = 'block';
     }, 1000);
-    
+
     setTimeout(() => {
-        successGif.style.display = 'none';
-        const fModal = bootstrap.Modal.getInstance(document.getElementById('creditInfo'));
-        fModal.hide();
-       
+      successGif.style.display = 'none';
+      const fModal = bootstrap.Modal.getInstance(document.getElementById('creditInfo'));
+      fModal.hide();
+
     }, 2500);
 
     const offcanvasEl = document.getElementById('offcanvasRight');
 
     const canvasHide = bootstrap.Offcanvas.getInstance(offcanvasEl);
 
-      canvasHide.hide();
-      
+    canvasHide.hide();
+
     const toastLiveExample = document.getElementById('liveToast');
     const toastInstance = new bootstrap.Toast(toastLiveExample, {
       autohide: false, // Disable auto-hide
-  })
+    })
     toastInstance.show();
 
     setTimeout(() => {
       toastInstance.hide();
-  }, 12000);
-    
+    }, 12000);
+
   }
 });
 
@@ -533,19 +552,19 @@ document.getElementById('creditCardBtn').addEventListener('click', function() {
 //   paymentModal.hide();
 // });
 
-document.querySelector('.payNow').addEventListener('click', ()=>{
+document.querySelector('.payNow').addEventListener('click', () => {
   const cardRadio = document.getElementById('cardRadio');
-  if(cardRadio.checked){
+  if (cardRadio.checked) {
     const prevModal = bootstrap.Modal.getInstance(document.getElementById('proceedCheckout3'));
     const modal = new bootstrap.Modal(document.getElementById('creditInfo'));
     prevModal.hide();
     modal.show();
-  }else{
+  } else {
     alert('Select Payment method')
   }
 });
 
-const authButton = document.getElementById("authButton");
+
 const logEmailError = document.getElementById("logEmailError");
 const logPassError = document.getElementById("logPassError");
 const signEmailError = document.getElementById("signEmailError");
@@ -553,15 +572,18 @@ const signPassError = document.getElementById("signPassError");
 const signConfirmPassError = document.getElementById("signConfirmPassError");
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-// Update the button based on user authentication status
+const authButton = document.querySelectorAll(".authBtn");
+
 function updateAuthButton() {
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
-  if (isLoggedIn) {
-    authButton.innerHTML = `<a data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>`;
-  } else {
-    authButton.innerHTML = `<a data-bs-target="#signMod" data-bs-toggle="modal"><i class="fa-regular fa-user"></i> Login / SignUp</a>`;
-  }
+  authButton.forEach(btn => {
+    if (isLoggedIn) {
+      btn.innerHTML = `<a data-bs-toggle="modal" data-bs-target="#logoutModal"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>`;
+    } else {
+      btn.innerHTML = `<a data-bs-target="#signMod" data-bs-toggle="modal"><i class="fa-regular fa-user"></i> Login / SignUp</a>`;
+    }
+  });
 }
 
 // Handle login logic
@@ -572,13 +594,13 @@ function handleLogin() {
   if (!emailPattern.test(email.value)) {
     email.classList.add('is-invalid');
     valid = false;
-  }else{
+  } else {
     email.classList.remove('is-invalid');
   }
-   if(password.value.length < 8){
+  if (password.value.length < 8) {
     password.classList.add('is-invalid');
     valid = false;
-  }else{
+  } else {
     password.classList.remove('is-invalid');
   }
 
@@ -592,7 +614,7 @@ function handleLogin() {
     const bootstrapModal = bootstrap.Modal.getInstance(loginModal);
     bootstrapModal.hide();
 
-  } 
+  }
 }
 
 function handleSignUp() {
@@ -606,30 +628,30 @@ function handleSignUp() {
   if (!emailPattern.test(email.value)) {
     email.classList.add("is-invalid");
     valid = false;
-  }else {
+  } else {
     email.classList.remove('is-invalid');
   }
-  if(password.value.length < 8){
+  if (password.value.length < 8) {
     password.classList.add('is-invalid');
     valid = false;
-  }else{
+  } else {
     password.classList.remove('is-invalid');
   }
- if(password.value === confirmPassword.value){
-  confirmPassword.classList.remove('is-invalid');
-   }
- else{
-  confirmPassword.classList.add('is-invalid');
-  valid = false;
- }
- if(agreeSign.checked){
-  agreeSign.classList.remove('is-invalid')
- }else{
-  agreeSign.classList.add('is-invalid')
-  valid = false;
- }
+  if (password.value === confirmPassword.value) {
+    confirmPassword.classList.remove('is-invalid');
+  }
+  else {
+    confirmPassword.classList.add('is-invalid');
+    valid = false;
+  }
+  if (agreeSign.checked) {
+    agreeSign.classList.remove('is-invalid')
+  } else {
+    agreeSign.classList.add('is-invalid')
+    valid = false;
+  }
 
-  if (valid){
+  if (valid) {
     // Simulate account creation
     alert("Account successfully created! Please log in.");
 
@@ -672,7 +694,7 @@ const modPrice = document.getElementById("modPrice");
 const modDet = document.getElementById("modDet");
 
 document.querySelectorAll(".butio").forEach((button) => {
- 
+
   button.addEventListener("click", () => {
     modPrice.innerHTML = `&pound; ${button.getAttribute("data-price")}`;
     modDet.innerHTML = `${button.getAttribute("data-list")}`;
@@ -716,10 +738,10 @@ document
     if (cardName.value.trim() === '') {
       cardName.classList.add('is-invalid');
       isValid = false;
-  }
-  else{
-    cardName.classList.remove('is-invalid');
-  }
+    }
+    else {
+      cardName.classList.remove('is-invalid');
+    }
 
     // Validate Card Number
     if (!/^\d{16}$/.test(cardNumber.value.trim())) {
@@ -732,20 +754,20 @@ document
     const expParts = expiryDate.value.trim().split('/');
     if (expParts.length !== 2 || !/^\d{2}$/.test(expParts[0]) || !/^\d{2}$/.test(expParts[1])) {
       expiryDate.classList.add('is-invalid')
-        isValid = false;
+      isValid = false;
     } else {
-        const month = parseInt(expParts[0], 10);
-        const year = parseInt(expParts[1], 10) + 2000; // Assuming YY is in 2000s
-        const expirDate = new Date(year, month - 1); // Month is 0-indexed
-        const today = new Date();
-        if (expirDate < today) {
-         expiryDate.classList.add('is-invalid')
-          document.getElementById('expDateFeedback').textContent = 'Card has expired.';
-            isValid = false;
-        }
-        else{
-         expiryDate.classList.remove('is-invalid')
-        }
+      const month = parseInt(expParts[0], 10);
+      const year = parseInt(expParts[1], 10) + 2000; // Assuming YY is in 2000s
+      const expirDate = new Date(year, month - 1); // Month is 0-indexed
+      const today = new Date();
+      if (expirDate < today) {
+        expiryDate.classList.add('is-invalid')
+        document.getElementById('expDateFeedback').textContent = 'Card has expired.';
+        isValid = false;
+      }
+      else {
+        expiryDate.classList.remove('is-invalid')
+      }
     }
 
     // Validate CVV (3 digits)
@@ -760,50 +782,50 @@ document
     if (isValid) {
       const successGif = document.querySelector(".successGif");
       setTimeout(() => {
-          successGif.style.display = 'block';
+        successGif.style.display = 'block';
       }, 1000);
-      
+
       setTimeout(() => {
-          successGif.style.display = 'none';
-          const fModal = bootstrap.Modal.getInstance(document.getElementById('creditInfo'));
-          fModal.hide();
-         
+        successGif.style.display = 'none';
+        const fModal = bootstrap.Modal.getInstance(document.getElementById('creditInfo'));
+        fModal.hide();
+
       }, 2500);
-  
+
       const modal = document.getElementById('exampleModalToggle3');
-  
+
       const modalHide = bootstrap.Modal.getInstance(modal);
-  
-        modalHide.hide();
-        
+
+      modalHide.hide();
+
       const toastLiveExample = document.getElementById('SuccessliveToast');
       const toastInstance = new bootstrap.Toast(toastLiveExample, {
         autohide: false, // Disable auto-hide
-    })
+      })
       toastInstance.show();
-  
+
       setTimeout(() => {
         toastInstance.hide();
-    }, 12000);
+      }, 12000);
     }
   });
 
 
-  
-  const checkFootEmail = document.getElementById("checkFootEmail");
-  const footEmailInput = document.getElementById("footEmailInput");
-  
-  checkFootEmail.addEventListener("click", verifyFootMessage);
-  function verifyFootMessage() {
-    if (footEmailInput.value === "" || !emailPattern.test(footEmailInput.value)) {
-      footEmailInput.classList.add('is-invalid');
-    } else {
-      footEmailInput.classList.remove('is-invalid')
-      setTimeout(() => {
-        alert(
-          "Your subscription has been successfully submitted! Our team will get back to you shortly. Thank you for your interest!"
-        );
-      }, 1000);
-    }
+
+const checkFootEmail = document.getElementById("checkFootEmail");
+const footEmailInput = document.getElementById("footEmailInput");
+
+checkFootEmail.addEventListener("click", verifyFootMessage);
+function verifyFootMessage() {
+  if (footEmailInput.value === "" || !emailPattern.test(footEmailInput.value)) {
+    footEmailInput.classList.add('is-invalid');
+  } else {
+    footEmailInput.classList.remove('is-invalid')
+    setTimeout(() => {
+      alert(
+        "Your subscription has been successfully submitted! Our team will get back to you shortly. Thank you for your interest!"
+      );
+    }, 1000);
   }
+}
 
