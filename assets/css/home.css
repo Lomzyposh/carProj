@@ -836,7 +836,6 @@ main {
 .car-item.show {
   opacity: 1;
   transform: translateY(0);
-  /* Moves to its original position */
 }
 
 .car-item img {
@@ -885,15 +884,16 @@ main {
 }
 
 #carModal {
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  padding: 20px;
+  /* box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3); */
+  /* padding: 20px; */
   border-radius: 10px;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  gap: 90px;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #333;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  font-family: 'Quicksand', Arial, sans-serif;
+  /* background: #333; */
 }
 
 .modal-body {
@@ -940,19 +940,31 @@ main {
 
 .askQuestion {
   color: white;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-style: normal;
+  width: 50vw;
+  padding: 10px;
+  border-radius: 8px;
 }
 
 .askQuestion input[type="email"] {
   padding: 15px;
 }
 
+.askQuestion button[type="submit"] {
+  width: 200px;
+  padding: 14px;
+  border: 2px solid grey;
+  background-color: transparent;
+  cursor: pointer;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
 .askQuestion input[type="email"]::placeholder {
   color: white;
   opacity: 0.2;
 }
+
 
 #askMessage {
   background-color: transparent;
@@ -998,13 +1010,14 @@ main {
 
 .fImg {
   overflow: hidden;
-  margin-bottom: 60px;
   border-radius: 10px;
+  width: 100%;
+  grid-row: 1 / span 2;
 }
 
 .firstImg {
   width: 100%;
-  height: 350px;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
   transition: all 2s ease;
@@ -1017,17 +1030,18 @@ main {
 }
 
 .otherList {
-  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .otherList img {
-  width: 165px;
-  height: 100px;
+  width: 100%;
+  height: 130px;
   object-fit: cover;
   border-radius: 10px;
-  transition: transform 2s ease-in-out, bottom 1s ease-in-out;
+  transition: all 1s ease-in-out;
   position: relative;
-  bottom: 50px;
 }
 
 .otherList img:active {
@@ -1036,11 +1050,75 @@ main {
 }
 
 .otherList img:hover {
-  bottom: 60px;
+  transform: translateY(-10px);
   box-shadow: 0px 2px 12px orange;
 }
 
-.imageCont button {
+
+.imageCont {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  gap: 20px;
+  /* background-color: #28a745; */
+}
+
+.makeImgBig {
+  width: 100vw;
+  height: 100vh;
+  z-index: 3000;
+  background: rgba(30, 30, 30, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+
+.makeImgBig img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 16px;
+  box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.7);
+  background: #232323;
+  object-fit: contain;
+}
+
+.makeImgBig .close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: #ff6961;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.makeImgBig.fadeOut {
+  animation: shrinkScaleDown 0.5s ease-in-out;
+}
+
+@keyframes shrinkScaleDown {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(0) translateX(-50px);
+  }
+}
+
+.addTest {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.addTest button {
   width: 200px;
   padding: 14px;
   border: 2px solid grey;
@@ -1051,11 +1129,11 @@ main {
   font-weight: 600;
 }
 
-.imageCont button i {
+.addTest button i {
   font-size: 22px;
 }
 
-.imageCont button:hover {
+.addTest button:hover {
   background-color: #28a745;
   color: white;
 }
@@ -1723,6 +1801,11 @@ footer .icon {
     position: absolute;
     top: 0;
   } */
+  .full-width-modal .modal-dialog {
+    max-width: 100%;
+    margin: 0;
+    height: 100%;
+  }
 
 
   header {
@@ -1752,14 +1835,6 @@ footer .icon {
     width: 120px;
   }
 
-  #carList {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  }
-
-  .car-item {
-    width: 100%;
-  }
-
   #journal .flexed {
     flex-direction: column;
     gap: 30px;
@@ -1771,7 +1846,7 @@ footer .icon {
   }
 
   .footerList {
-   padding: 10px;
+    padding: 10px;
   }
 
   #newsLetter {
@@ -1785,10 +1860,115 @@ footer .icon {
   }
 }
 
+@media (max-width: 1103px) {
+
+  header .container-fluid {
+    background-color: #232323;
+  }
+
+  #carList {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .car-item {
+    width: 90vw;
+    max-width: 500px;
+  }
+
+  /* .imageCont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  } */
+
+  .imageCont button {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .fImg {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  /* .otherList {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  } */
+
+  /* .otherList img {
+    width: 33.33%;
+    height: 100px;
+    margin-bottom: 10px;
+  } */
+
+  .description {
+    width: 100%;
+    align-items: center;
+    margin: 0;
+  }
+
+  .description h4 {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .description p {
+    font-size: 14px;
+    /* flex-direction: column; */
+    gap: 2px;
+  }
+
+  .description span {
+    font-size: 13px;
+    padding: 2px;
+  }
+
+  .askQuestion {
+    width: 100%;
+    max-width: 400px;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  #newsLetter {
+    width: 100%;
+  }
+
+  #newsLetter .form-floating input,
+  #newsLetter button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #askMessage {
+    height: 120px;
+  }
+}
+
+@media (max-width: 964px) {
+  #carModal {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+}
+
 @media (max-width: 768px) {
   .custom-brand span {
     display: none;
   }
+
   .searchField::placeholder {
     font-size: 12px;
   }
@@ -1820,7 +2000,7 @@ footer .icon {
     font-size: 11px;
   }
 
-  .fade-in{
+  .fade-in {
     opacity: 1;
     transform: translateY(0);
   }
@@ -1848,14 +2028,51 @@ footer .icon {
   }
 
 
-  #carList {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
 
   .car-item {
-    width: 100%;
+    width: 98vw;
+    max-width: 98vw;
   }
+
+  .fImg,
+  .description {
+    width: 98vw;
+    max-width: 98vw;
+  }
+
+  .firstImg {
+    height: 200px;
+  }
+
+  .otherList img {
+    width: 120px;
+    height: 70px;
+  }
+
+  .addTest {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .addTest button {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .details {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .details img {
+    width: 90vw;
+    height: 120px;
+  }
+
 
   #journal .big img {
     height: 220px;
@@ -1895,6 +2112,17 @@ footer .icon {
     text-align: center;
   }
 
+  .modal-dialog-bottom-right {
+    right: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  #backToTop {
+    bottom: 60px;
+  }
+
   footer .bottom {
     flex-direction: column;
     gap: 10px;
@@ -1914,6 +2142,19 @@ footer .icon {
 
   .Bod {
     margin: 2px;
+  }
+
+  .car-item {
+    width: 350px;
+    border-radius: 0px;
+    max-width: 100vw;
+    font-size: 14px;
+  }
+
+  .fImg,
+  .description {
+    width: 100%;
+    font-size: 14px;
   }
 
   /* .fPart img {
@@ -1992,15 +2233,15 @@ footer .icon {
     gap: 8px;
   }
 
-  .car-item img {
-    height: 120px;
+
+  .otherList img {
+    width: 100px;
+    height: 80px;
   }
 
-  .car-item h5,
-  .car-item .price,
-  .car-item p {
-    font-size: 13px;
-    padding-left: 5px;
+  .details img {
+    width: 100vw;
+    height: 80px;
   }
 
   .articles article {
@@ -2018,24 +2259,6 @@ footer .icon {
   .notes {
     padding: 10px;
     font-size: 13px;
-  }
-
-  .details {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 2px;
-  }
-
-  .details img {
-    width: 80px;
-    height: 50px;
-    margin-bottom: 5px;
-  }
-
-  .description {
-    width: 100%;
-    font-size: 13px;
-    padding: 3px;
   }
 
   #OrderSummary {

@@ -252,8 +252,8 @@
       <div id="carList" class="car-list"></div>
     </div>
 
-    <div class="modal fade" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"
-      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade full-width-modal" id="staticBackdrop" tabindex="-1" data-bs-backdrop="static"
+      data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
@@ -274,39 +274,22 @@
                   <img src="" alt="" id="image3" class="thumbnail" />
                 </div>
 
-                <div class="buttons">
-                  <a href="/testDrive.html"><button>Book a Test Drive <i class="fa-solid fa-car"
-                        style="color: #ffea00ab;"></i></button></a>
-                  <button id="addToCartButton">Add to Cart <i class="fa-solid fa-cart-plus"
-                      style="color: #ffa600c0;"></i></button>
-                </div>
-                <hr style="color: white">
-                <div class="askQuestion">
-                  <h5>Ask a Question</h5>
-                  <div class="mb-3">
-                    <label for="floatingInput">Email address</label>
-                    <input type="email" class="form-control" id="askEmail" placeholder="name@example.com"
-                      style="background-color: #333; color: white;">
-                    <div class="alert alert-danger" role="alert" id="askEmailError">
-                      <i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i> Enter valid email
-                    </div>
-                    <textarea class="form-control" id="askMessage" rows="3"></textarea>
-                    <span class="messageError"></span>
-                    <button type="submit" id="askForm">Send</button>
 
-                  </div>
-                </div>
+                <hr style="color: white">
+
               </div>
+              <!-- <hr style="color: white"> -->
               <div class="carDetails">
                 <nav
                   style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
                   aria-label="breadcrumb">
                   <ol class="breadcrumb">
-                    <li class="breadcrumb-item lk"><a href="#" class="link-info">Home</a></li>
-                    <li class="breadcrumb-item lk"><a href="#" class="link-info">Cars</a></li>
+                    <li class="breadcrumb-item lk"><a href="/" class="link-info" onclick="closeCarModal()">Home</a></li>
+                    <li class="breadcrumb-item lk"><a href="/allCars.html" class="link-info"
+                        onclick="closeCarModal()">Cars</a></li>
 
                     <li class="breadcrumb-item active modalTitle top
-            " aria-current="page"></li>
+              " aria-current="page"></li>
                   </ol>
                 </nav>
                 <h4 class="modalTitle">CAR NAME</h2>
@@ -331,14 +314,73 @@
                       <p>Exterior color <span id="modalexColor"></span></p>
                       <p>Interior Color <span id="modalintColor"></span></p>
                     </div>
+
+                    <!-- <div class="contactAgent">
+                                <div class="form-floating mb-3">
+                                    <input type="Name" class="form-control" id="floatingInput"
+                                        placeholder="Name" title="Name">
+                                    <label for="floatingInput">Name</label>
+                                    <span class="text-danger nameError"></span>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="floatingInput"
+                                        placeholder="name@example.com" title="Email">
+                                    <label for="floatingInput">Email address</label>
+                                    <span class="text-danger emailError"></span>
+                                </div>
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea">Comments(optional)</label>
+                                  </div>
+                                  <div class="simTerms">
+                                    
+                                    <input type="checkbox" id="flexCheckDefault" class="form-check-input">
+                                
+                                   <label class="form-check-label" for="flexCheckDefault"> I agree to Terms of Use and Privacy Policy</label>
+                                   
+                                </div>
+                                  <div class="simTerms">
+                                    <input type="checkbox" id="flexCheckChecked" class="form-check-input">
+                                    <label class="form-check-label" for="flexCheckChecked">Notify me via email when similar listings appear</label>
+                                </div>
+                                <span class="text-danger agreeError"></span>
+                                <button title="Contact Agent">Contact Agent</button>
+
+                               
+                            </div> -->
               </div>
 
+            </div>
+            <!-- <hr style="color: white"> -->
+            <div class="addTest">
+              <a href="/testDrive.html"><button>Book a Test Drive <i class="fa-solid fa-car"
+                    style="color: #ffea00ab;"></i></button></a>
+              <button id="addToCartButton">Add to Cart <i class="fa-solid fa-cart-plus"
+                  style="color: #ffa600c0;"></i></button>
+            </div>
+            <hr style="color: white">
+
+            <div class="askQuestion">
+              <h5>Ask a Question</h5>
+              <div class="mb-3">
+                <label for="floatingInput">Email address</label>
+                <input type="email" class="form-control" id="askEmail" placeholder="name@example.com"
+                  style="background-color: #333; color: white;">
+                <div class="alert alert-danger" role="alert" id="askEmailError">
+                  <i class="fa-solid fa-circle-exclamation" style="color: #ff0000;"></i> Enter valid email
+                </div>
+                <textarea class="form-control" id="askMessage" rows="3"></textarea>
+                <span class="messageError"></span>
+                <button type="submit" id="askForm">Send</button>
+
+              </div>
             </div>
 
           </div>
         </div>
       </div>
     </div>
+
 
     <div id="journal">
       <h2>The Journal</h2>
